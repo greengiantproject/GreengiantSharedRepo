@@ -1,30 +1,28 @@
-import React, { Component } from 'react';
-import logo from './Friends_of_the_Earth_(logo).png';
-import './App.css';
+import React, { useState } from 'react';
+import SpinningLogo from './Spinning-Logo.js';
+import './css/App.css';
+import './css/bg-colors.css';
+import Home from './Home.js';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Welcome to Green Community!<br></br>
-            <b>Under Construction</b>
-          </p>
+const App = () => {
+  const [loaded, setLoaded] = useState(false)
+  setTimeout(()=>{
+    setLoaded(true)
+  }, 2500)
+  return (
+    <div className="App-header bg-white">
+    {!loaded &&(
+      <header>
+      <SpinningLogo />
+      </header>
+    )}
 
-          <a
-            className="App-link"
-            href="https://friendsoftheearth.uk/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            In the meantime, visit our website!
-          </a>
-        </header>
-      </div>
-    );
-  }
+    {loaded &&(
+      <Home />
+    )}
+    </div>
+  );
 }
+
 
 export default App;
