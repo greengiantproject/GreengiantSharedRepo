@@ -8,7 +8,7 @@ const App = () => {
   const [loaded, setLoaded] = useState(false)
   setTimeout(()=>{
     setLoaded(true)
-  }, 2500)
+  }, 500)
   return (
     <div className="App-header bg-white">
     {!loaded &&(

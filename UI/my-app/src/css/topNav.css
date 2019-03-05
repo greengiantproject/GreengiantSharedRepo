@@ -1,0 +1,13 @@
+.TopNav{
+top: 0;
+height: auto;
+width: 100%;
+position: fixed;
+text-align: left;
+}
+
+.TopNavlogo{
+width: 6rem;
+padding: 1rem;
+
+}

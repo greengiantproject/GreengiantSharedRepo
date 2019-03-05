@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import Logo from './Logo.js';
-import topNav from './top-nav.js';
+import TopNav from './top-nav.js';
 import './css/App.css';
 
 class Home extends Component {
   render() {
     return (
       <div className="App w100">
-      <topNav />
-        <header className="App-header">
+        <TopNav />
+        <header className="App-header white">
           <a
             className="App-link"
             href="https://reactjs.org"
