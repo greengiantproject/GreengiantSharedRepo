@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {NavLink} from 'react-router-dom';
 import logo from './logo-white.png';
 import './css/topNav.css';
 import './css/bg-colors.css';
@@ -8,7 +9,7 @@ class TopNav extends Component {
   render() {
     return (
       <div className="TopNav bg-blue">
-        <img src={logo} className="TopNavlogo" alt="logo" />
+        <NavLink to="/Projects"><img src={logo} className="TopNavlogo" alt="logo" /></NavLink>
       </div>
     );
   }

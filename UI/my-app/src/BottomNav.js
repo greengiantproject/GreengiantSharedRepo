@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {NavLink} from 'react-router-dom';
 import './css/BottomNav.css';
 import Profile from './126486.svg';
 import Projects from './861157.svg';
@@ -10,10 +11,10 @@ class BottomNav extends Component {
     return(
       <div className="bottomNav">
         <ul className="nav-bar">
-          <li className="nav-bar-item"><a href="https://friendsoftheearth.uk/"><img src={Projects} className="nav-bar-icon" alt="Projects" /> </a></li>
-          <li className="nav-bar-item"><a href="/Statistics.js"><img src={Statistics} className="nav-bar-icon" alt="Statistics" /> </a> </li>
-          <li className="nav-bar-item"><a href="https://friendsoftheearth.uk/"><img src={Messages} className="nav-bar-icon" alt="News" /> </a> </li>
-          <li className="nav-bar-item"><a href="https://friendsoftheearth.uk/"><img src={Profile} className="nav-bar-icon" alt="Profile" /></a> </li>
+          <li className="nav-bar-item"><NavLink to="/Projects"><img src={Projects} className="nav-bar-icon" alt="Projects" /> </NavLink></li>
+          <li className="nav-bar-item"><NavLink to="/Statistics"><img src={Statistics} className="nav-bar-icon" alt="Statistics" /> </NavLink> </li>
+          <li className="nav-bar-item"><NavLink to="/Messages"><img src={Messages} className="nav-bar-icon" alt="News" /> </NavLink> </li>
+          <li className="nav-bar-item"><NavLink to="/Profile"><img src={Profile} className="nav-bar-icon" alt="Profile" /></NavLink> </li>
         </ul>
       </div>
 
