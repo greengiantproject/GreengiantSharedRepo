@@ -1,30 +1,54 @@
-import React, { Component } from 'react';
-import logo from './Friends_of_the_Earth_(logo).png';
-import './App.css';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import SpinningLogo from './Spinning-Logo.js';
+import './css/App.css';
+import './css/bg-colors.css';
+import Home from './Home.js';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Welcome to Green Community!<br></br>
-            <b>Under Construction</b>
-          </p>
+import Statistics from './Statistics';
+import Messages from './Messages';
+import Profile from './Profile';
+import Projects from './Home';
+import NewAccountForm from './NewAccountForm';
 
-          <a
-            className="App-link"
-            href="https://friendsoftheearth.uk/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            In the meantime, visit our website!
-          </a>
-        </header>
-      </div>
-    );
-  }
+
+const App = () => {
+  const [loaded, setLoaded] = useState(false)
+  setTimeout(()=>{
+    setLoaded(true)
+  }, 2500)
+
+  var readingsDB = new window.PouchDB('68.183.43.182:5984/cotwodb/');
+  var usersDB = new window.PouchDB('68.183.43.182:5984/usersdb/');
+
+  console.log(readingsDB);
+
+  return (
+    <Router>
+    <div className="App-header bg-white">
+
+    {!loaded &&(
+      <header>
+      <SpinningLogo />
+      </header>
+    )}
+
+    {loaded &&(
+      <>
+        <Route exact path="/" component={Home}/>
+        <Route exact path="/Statistics" component={Statistics}/>
+        <Route exact path="/Projects" component={Home}/>
+        <Route exact path="/Messages" component={Messages}/>
+        <Route exact path="/Profile" component={Profile}/>
+        <Route exact path="/NewAccountForm" component={NewAccountForm}/>
+      </>
+    )}
+    </div>
+    </Router>
+  );
 }
+
+
+
 
 export default App;
