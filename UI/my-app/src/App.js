@@ -9,12 +9,20 @@ import Statistics from './Statistics';
 import Messages from './Messages';
 import Profile from './Profile';
 import Projects from './Home';
+import NewAccountForm from './NewAccountForm';
+
 
 const App = () => {
   const [loaded, setLoaded] = useState(false)
   setTimeout(()=>{
     setLoaded(true)
-  }, 500)
+  }, 2500)
+
+  var readingsDB = new window.PouchDB('68.183.43.182:5984/cotwodb/');
+  var usersDB = new window.PouchDB('68.183.43.182:5984/usersdb/');
+
+  console.log(readingsDB);
+
   return (
     <Router>
     <div className="App-header bg-white">
@@ -32,12 +40,15 @@ const App = () => {
         <Route exact path="/Projects" component={Home}/>
         <Route exact path="/Messages" component={Messages}/>
         <Route exact path="/Profile" component={Profile}/>
+        <Route exact path="/NewAccountForm" component={NewAccountForm}/>
       </>
     )}
     </div>
     </Router>
   );
 }
+
+
 
 
 export default App;
