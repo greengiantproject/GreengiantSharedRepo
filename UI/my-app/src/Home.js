@@ -9,8 +9,8 @@ class Home extends Component {
       <div className="App w100">
         <TopNav />
         <header className="App-header white">
-        <h1 className="h1"> Welcome to the Friends of the Earth App </h1>
-        <h2> This is the <b>Projects</b> Page </h2>
+
+        <h2> Projects </h2>
           <a
             className="App-link"
             href="https://friendsoftheearth.uk/"

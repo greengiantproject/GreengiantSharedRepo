@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import SpinningLogo from './Spinning-Logo.js';
 import './css/App.css';
 import './css/bg-colors.css';
-import Home from './Home.js';
+//import Home from './Home.js';
 
 import Statistics from './Statistics';
 import Messages from './Messages';
@@ -18,10 +18,10 @@ const App = () => {
     setLoaded(true)
   }, 2500)
 
-  var readingsDB = new window.PouchDB('68.183.43.182:5984/cotwodb/');
-  var usersDB = new window.PouchDB('68.183.43.182:5984/usersdb/');
-
-  console.log(readingsDB);
+  var readingsDB = new window.PouchDB('http://68.183.43.182:5984/cotwodb/');
+  var usersDB = new window.PouchDB('http://68.183.43.182:5984/usersdb/');
+  //var localUsersDB = window.PouchDB('usersdb')
+  //localUsersDB.replicate.to(usersDB)
 
   return (
     <Router>
@@ -35,12 +35,14 @@ const App = () => {
 
     {loaded &&(
       <>
-        <Route exact path="/" component={Home}/>
+        <Route exact path="/" component={Projects}/>
         <Route exact path="/Statistics" component={Statistics}/>
-        <Route exact path="/Projects" component={Home}/>
+        <Route exact path="/Projects" component={Projects}/>
         <Route exact path="/Messages" component={Messages}/>
         <Route exact path="/Profile" component={Profile}/>
-        <Route exact path="/NewAccountForm" component={NewAccountForm}/>
+        <Route exact path="/NewAccountForm" component={()=> (
+          <NewAccountForm usersDB={usersDB} />
+        )}/>
       </>
     )}
     </div>

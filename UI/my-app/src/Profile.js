@@ -5,6 +5,7 @@ import BottomNav from './BottomNav.js';
 import './css/App.css';
 
 class Profile extends Component {
+
   render() {
     return (
       <div className="App w100">
