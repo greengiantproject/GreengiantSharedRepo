@@ -1,0 +1,23 @@
+.bottomNav{
+  background-color: #34da96;
+  position: fixed;
+  bottom: 0;
+  height: auto;
+  width: 100%;
+}
+
+.nav-bar {
+list-style: none;
+display: inline-block;
+padding: 0;
+}
+
+.nav-bar-item{
+padding-left: 6vmin;
+padding-right: 6vmin;
+display: inline-block;
+}
+
+.nav-bar-icon {
+height: 12vmin;
+}
